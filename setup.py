@@ -1,53 +1,44 @@
-#!/usr/bin/env python
-#
-# Copyright 2015 DyD Dinámica y Desarrollo SAS
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-'''The setup and build script for the python-filapp library.'''
-
-import os
-
 from setuptools import setup, find_packages
 
-
-def read(*paths):
-    """Build a file path from *paths* and return the contents."""
-    with open(os.path.join(*paths), 'r') as f:
-        return f.read()
-
+__version__ = "0.0.1"
 
 setup(
-    name='python-filapp',
-    version='0.1',
-    author='DyD Dinamica y Desarrollo SAS',
-    author_email='filapp@filapp.co',
-    license='Apache License 2.0',
-    url='https://github.com/grupodyd/python-filapp',
-    keywords='filapp api',
-    description='A Python wrapper around the Filapp API',
-    long_description=(read('CHANGES')),
-    packages=find_packages(exclude=['tests*']),
-    install_requires=['requests'],
+    name="filapp",
+    version=__version__,
+    description="Filapp API Client",
+    long_description=open("README.md").read().strip(),
+    long_description_content_type="text/markdown",
+    license="MIT",
+    author="Juan F. Duque",
+    author_email="jfelipe@grupodyd.com",
+    packages=find_packages(exclude=["tests", "tests.*"]),
+    include_package_data=True,
+    url="https://www.filapp.co",
+    project_urls={
+        "Source": "https://github.com/grupodyd/python-filapp",
+        "Tracker": "https://github.com/grupodyd/python-filapp/issues",
+    },
+    keywords="filapp",
+    python_requires=">=3.8.0",
+    install_requires=[
+        "httpx[http2] >= 0.24.0, < 1",
+        "pydantic >= 2, < 3",
+    ],
     classifiers=[
-        'Development Status :: 1 - Planning',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
-        'Operating System :: OS Independent',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: Internet',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
+        "Development Status :: 2 - Pre-Alpha",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
 )
